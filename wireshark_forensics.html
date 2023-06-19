@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wireshark Display Filters - Forensics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wireshark Display Filters - Forensics</h1>
+    <table>
+        <tr>
+            <th>Filter</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>http</td>
+            <td>Filter for HTTP traffic</td>
+        </tr>
+        <tr>
+            <td>ftp</td>
+            <td>Filter for FTP traffic</td>
+        </tr>
+        <tr>
+            <td>smtp</td>
+            <td>Filter for SMTP traffic (email)</td>
+        </tr>
+        <tr>
+            <td>dns</td>
+            <td>Filter for DNS traffic</td>
+        </tr>
+        <tr>
+            <td>telnet</td>
+            <td>Filter for Telnet traffic</td>
+        </tr>
+        <tr>
+            <td>ssh</td>
+            <td>Filter for SSH traffic</td>
+        </tr>
+        <tr>
+            <td>rdp</td>
+            <td>Filter for RDP (Remote Desktop Protocol) traffic</td>
+        </tr>
+        <tr>
+            <td>icmp</td>
+            <td>Filter for ICMP (Internet Control Message Protocol) traffic</td>
+        </tr>
+        <tr>
+            <td>arp</td>
+            <td>Filter for ARP (Address Resolution Protocol) traffic</td>
+        </tr>
+        <tr>
+            <td>dhcp</td>
+            <td>Filter for DHCP (Dynamic Host Configuration Protocol) traffic</td>
+        </tr>
+        <tr>
+            <td>ntp</td>
+            <td>Filter for NTP (Network Time Protocol) traffic</td>
+        </tr>
+        <tr>
+            <td>smb</td>
+            <td>Filter for SMB (Server Message Block) traffic</td>
+        </tr>
+        <tr>
+            <td>nbns</td>
+            <td>Filter for NetBIOS traffic</td>
+        </tr>
+        <tr>
+            <td>ssl</td>
+            <td>Filter for SSL/TLS encrypted traffic</td>
+        </tr>
+        <tr>
+            <td>frame contains "password"</td>
+            <td>Filter for suspicious or malicious activity (searching for the word "password")</td>
+        </tr>
+        <tr>
+            <td>ip.addr == 192.168.1.1</td>
+            <td>Filter traffic to or from a specific IP address</td>
+        </tr>
+        <tr>
+            <td>ip.src == 192.168.1.1</td>
+            <td>Filter traffic from a specific IP address</td>
+        </tr>
+        <tr>
+            <td>ip.dst == 192.168.1.1</td>
+            <td>Filter traffic to a specific IP address</td>
+        </tr>
+        <tr>
+            <td>tcp.srcport == 80</td>
+            <td>Filter traffic from a specific port</td>
+        </tr>
+        <tr>
+            <td>tcp.dstport == 80</td>
+            <td>Filter traffic to a specific port</td>
+        </tr>
+    </table>
+</body>
+</html>
