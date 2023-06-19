@@ -1,46 +1,48 @@
 #!/bin/bash
 
+LOG_FILE="wireshark_menu.log"
+
 # Function to filter traffic to or from a specific IP address
 filter_by_ip() {
     read -p "Enter the IP address: " ip_address
-    echo "Filter: ip.addr == $ip_address"
+    echo "Filter: ip.addr == $ip_address" | tee -a "$LOG_FILE"
 }
 
 # Function to filter traffic from a specific IP address
 filter_by_source_ip() {
     read -p "Enter the source IP address: " source_ip
-    echo "Filter: ip.src == $source_ip"
+    echo "Filter: ip.src == $source_ip" | tee -a "$LOG_FILE"
 }
 
 # Function to filter traffic to a specific IP address
 filter_by_destination_ip() {
     read -p "Enter the destination IP address: " dest_ip
-    echo "Filter: ip.dst == $dest_ip"
+    echo "Filter: ip.dst == $dest_ip" | tee -a "$LOG_FILE"
 }
 
 # Function to filter traffic from a specific port
 filter_by_source_port() {
     read -p "Enter the source port number: " source_port
-    echo "Filter: tcp.srcport == $source_port"
+    echo "Filter: tcp.srcport == $source_port" | tee -a "$LOG_FILE"
 }
 
 # Function to filter traffic to a specific port
 filter_by_destination_port() {
     read -p "Enter the destination port number: " dest_port
-    echo "Filter: tcp.dstport == $dest_port"
+    echo "Filter: tcp.dstport == $dest_port" | tee -a "$LOG_FILE"
 }
 
 # Function to filter traffic based on a specific protocol
 filter_by_protocol() {
     read -p "Enter the protocol: " protocol
-    echo "Filter: $protocol"
+    echo "Filter: $protocol" | tee -a "$LOG_FILE"
 }
 
 # Function to filter traffic based on a specific protocol and IP address
 filter_by_protocol_and_ip() {
     read -p "Enter the IP address: " ip_address
     read -p "Enter the protocol: " protocol
-    echo "Filter: ip.addr == $ip_address && $protocol"
+    echo "Filter: ip.addr == $ip_address && $protocol" | tee -a "$LOG_FILE"
 }
 
 # Display the menu options
