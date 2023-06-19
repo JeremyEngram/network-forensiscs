@@ -1,5 +1,7 @@
 import pyshark
 
+log_file = 'pyshark_log.txt'  # Specify the path and filename for the log file
+
 # Step 1: Capture Network Traffic
 capture = pyshark.LiveCapture(interface='eth0')
 capture.sniff(timeout=10)  # Capture traffic for 10 seconds
@@ -9,15 +11,20 @@ capture.save('capture.pcap')  # Save captured packets to a pcap file
 cap = pyshark.FileCapture('capture.pcap')
 
 # Example: Print source and destination IP addresses of captured packets
-for packet in cap:
-    if 'IP' in packet:
-        print(f"Source IP: {packet['IP'].src} | Destination IP: {packet['IP'].dst}")
+with open(log_file, 'a') as log:
+    for packet in cap:
+        if 'IP' in packet:
+            src_ip = packet['IP'].src
+            dst_ip = packet['IP'].dst
+            log.write(f"Source IP: {src_ip} | Destination IP: {dst_ip}\n")
 
 # Step 3: Follow TCP Streams
 # Example: Print contents of TCP streams
-for packet in cap:
-    if 'TCP' in packet:
-        print(packet['TCP'].payload)
+with open(log_file, 'a') as log:
+    for packet in cap:
+        if 'TCP' in packet:
+            payload = packet['TCP'].payload
+            log.write(f"TCP Payload: {payload}\n")
 
 # Step 4: Export and Report
 # Example: Export packet summary to a CSV file
